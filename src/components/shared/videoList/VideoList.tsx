@@ -20,6 +20,8 @@ export function VideoList({
       ListEmptyComponent={
         <View className="flex-1 items-center justify-center" />
       }
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
       ItemSeparatorComponent={ItemSeparatorComponent}
       data={data}
       renderItem={renderItem}
@@ -28,6 +30,9 @@ export function VideoList({
       }
       horizontal={!!horizontal}
       keyboardDismissMode="on-drag"
+      contentContainerStyle={
+        horizontal?.contentContainerStyle || vertical?.contentContainerStyle
+      }
     />
   );
 }
