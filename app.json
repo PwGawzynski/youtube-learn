@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "static"
+    },
+    "newArchEnabled": true,
+    "jsEngine": "hermes",
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-sqlite"
+    ],
+    "name": "youtube-learn",
+    "slug": "youtube-learn",
+    "android": {
+      "package": "com.pwgawzynski.youtubelearn"
+    },
+    "ios": {
+      "bundleIdentifier": "com.pwgawzynski.youtubelearn"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "76b8e9f8-6b39-4dba-9d82-79e046723088"
+      }
+    }
+  }
+}
