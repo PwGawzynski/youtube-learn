@@ -14,11 +14,14 @@ const PADDING_LEFT = 16;
 export function CategorizedList({
   categoryName,
   maxResults = 5,
+  showSeparator,
 }: CategorizedListProps) {
-  const { data } = useCategorizedList({ categoryName, maxResults });
+  const { data, isLoading } = useCategorizedList({ categoryName, maxResults });
 
   return (
-    <View className="mt-4 h-[28%] justify-center">
+    <View
+      className={`mt-4 h-[28%] justify-center ${showSeparator ? 'border-b border-black dark:border-white' : ''}`}
+    >
       <TopBar
         headerText={categoryName}
         onShowMorePress={() => {
@@ -26,6 +29,7 @@ export function CategorizedList({
         }}
       />
       <VideoList
+        isLoading={isLoading}
         horizontal={{
           estimatedItemSize: ITEM_WIDTH,
           contentContainerStyle: { paddingLeft: PADDING_LEFT },
