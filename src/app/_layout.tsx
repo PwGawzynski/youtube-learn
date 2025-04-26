@@ -1,35 +1,22 @@
 import '../core/settings/global.css';
 
-import type { Theme } from '@react-navigation/native';
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
+import { ThemeProvider } from '@react-navigation/native';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { Slot } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
 
+import { useIsomorphicLayoutEffect } from '@/core/hooks/useIsomorphicLayoutEffect';
 import { QUERY_DEFAULTS } from '@/core/settings/query';
-import { NAV_THEME } from '@/lib/constants';
+import { DARK_THEME, LIGHT_THEME } from '@/core/settings/theme';
+import { validateEnv } from '@/core/utils/validateEnv';
 import { useColorScheme } from '@/lib/useColorScheme';
 
-const LIGHT_THEME: Theme = {
-  ...DefaultTheme,
-  colors: NAV_THEME.light,
-};
-const DARK_THEME: Theme = {
-  ...DarkTheme,
-  colors: NAV_THEME.dark,
-};
 export { ErrorBoundary } from 'expo-router';
 
-const useIsomorphicLayoutEffect =
-  Platform.OS === 'web' && typeof window === 'undefined'
-    ? React.useEffect
-    : React.useLayoutEffect;
+// Validate the environment variables
+validateEnv();
 
 export default function Layout() {
   const hasMounted = React.useRef(false);
