@@ -1,5 +1,11 @@
 import { View } from 'react-native';
 
+import { Feed } from '@/features/feed/components/Feed';
+
 export default function Index() {
-  return <View className="mt-10" />;
+  return (
+    <View className="flex-1">
+      <Feed />
+    </View>
+  );
 }
