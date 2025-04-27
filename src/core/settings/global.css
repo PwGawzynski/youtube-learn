@@ -23,6 +23,8 @@
         --border: 240 5.9% 90%;
         --input: 240 5.9% 90%;
         --ring: 240 5.9% 10%;
+        --button: 235 21% 21%;
+        --button-foreground: 0 0% 100%;
     }
 
     .dark:root {
@@ -45,5 +47,7 @@
         --border: 240 3.7% 15.9%;
         --input: 240 3.7% 15.9%;
         --ring: 240 4.9% 83.9%;
+        --button: 235 43.9% 88.8%;
+        --button-foreground: 240 10% 3.9%;
     }
 }
