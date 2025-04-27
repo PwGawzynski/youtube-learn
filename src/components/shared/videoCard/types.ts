@@ -6,6 +6,7 @@ export type VideoCardProps = {
   item: Item;
   style: StyleProp<ViewStyle>;
   showChannelTitle?: boolean;
+  onPress?: (item: Item) => void;
 };
 
 export type ThumbnailProps = {
