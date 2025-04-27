@@ -33,7 +33,6 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.1",
-    "react-native-auto-skeleton": "^0.1.22",
     "react-native-mmkv": "^3.2.0",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.3.0",
