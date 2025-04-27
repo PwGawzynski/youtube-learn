@@ -94,7 +94,26 @@
           {
             "zones": [
               // REMEMBER TO UPDATE THIS WHEN ADDING NEW FEATURES
-             
+              {
+                "target": "./src/features/feed",
+                "from": "./src/features",
+                "except": ["./feed"]
+              },
+              {
+                "target": "./src/features/categorized-list",
+                "from": "./src/features",
+                "except": ["./categorized-list"]
+              },
+              {
+                "target": "./src/features/search",
+                "from": "./src/features",
+                "except": ["./search"]
+              },
+              {
+                "target": "./src/features/search-and-settings-header",
+                "from": "./src/features",
+                "except": ["./search-and-settings-header"]
+              },
               // UNIDIRECTIONAL IMPORTS
               {
                 "target": "./src/features",
@@ -103,6 +122,7 @@
               {
                 "target": [
                     "./src/components",
+                    "./src/core/types",
                     "./src/core/hooks",
                     "./src/core/state",
                     "./src/core/utils",
