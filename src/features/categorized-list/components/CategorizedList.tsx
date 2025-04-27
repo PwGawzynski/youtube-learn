@@ -16,7 +16,10 @@ export function CategorizedList({
   maxResults = 5,
   showSeparator,
 }: CategorizedListProps) {
-  const { data, isLoading } = useCategorizedList({ categoryName, maxResults });
+  const { data, isLoading, handleVideoPress } = useCategorizedList({
+    categoryName,
+    maxResults,
+  });
 
   return (
     <View
@@ -39,6 +42,7 @@ export function CategorizedList({
           <VideoCard
             item={item}
             style={{ width: ITEM_WIDTH, height: ITEM_HEIGHT }}
+            onPress={handleVideoPress}
           />
         )}
       />
