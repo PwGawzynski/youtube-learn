@@ -7,7 +7,7 @@ import type { ThumbnailProps } from './types';
 
 export function Thumbnail({ item }: ThumbnailProps) {
   return (
-    <View className="w-full flex-[5]">
+    <View className="w-full flex-[5] items-center justify-center">
       <Image
         style={{ width: '100%', height: '100%', borderRadius: 10 }}
         source={{ uri: item.snippet.thumbnails.medium.url }}
