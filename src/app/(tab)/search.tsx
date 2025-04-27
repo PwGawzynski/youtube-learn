@@ -1,22 +1,16 @@
 import { useIsFocused } from '@react-navigation/native';
 import { SafeAreaView, View } from 'react-native';
 
-import { SearchBar } from '@/features/search-engine/components/SearchBar';
+import { Search } from '@/features/search/components/Search';
 
-export default function Search() {
+export default function SearchScreen() {
   const isFocused = useIsFocused();
   if (!isFocused) return null;
 
   return (
     <View className="flex-1">
       <SafeAreaView className="mt-12 flex-1">
-        <View className="m-4">
-          <SearchBar
-            placeholder="Search videos"
-            onChangeText={() => {}}
-            value=""
-          />
-        </View>
+        <Search />
       </SafeAreaView>
     </View>
   );
