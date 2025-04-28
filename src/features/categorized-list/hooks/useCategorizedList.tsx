@@ -19,7 +19,7 @@ export function useCategorizedList({
     };
 
     router.push({
-      pathname: '/video',
+      pathname: '/(auth)/video',
       params,
     });
   };
