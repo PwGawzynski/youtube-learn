@@ -1,8 +1,8 @@
-import type { Item } from '@/core/api/services/search/search-response.types';
+import type { VideoInfoItem } from '@/core/api/services/search/search-response.types';
 
 import { SortOptions } from '../types/components-types';
 
-export function getSortedItems(items: Item[], sortType?: SortOptions) {
+export function getSortedItems(items: VideoInfoItem[], sortType?: SortOptions) {
   if (!items) return items;
 
   const itemsCopy = [...items];
