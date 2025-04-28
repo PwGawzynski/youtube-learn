@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 
-import { Header } from '@/components/shared/Header/Header';
+import { Header } from '@/components/shared/header/Header';
 import { UnderlineButton } from '@/components/shared/underlineButton';
 
 import type { TopBarProps } from '../types/components-types';
