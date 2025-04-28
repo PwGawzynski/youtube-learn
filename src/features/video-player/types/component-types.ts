@@ -8,4 +8,10 @@ export type ControllButtonProps = {
 
 export type ControlPanelProps = {};
 
-export type ProgressBarProps = {};
+export type ProgressBarProps = {
+  videoId: string;
+};
+
+export type VideoPlayerProps = {
+  videoId: string;
+};
