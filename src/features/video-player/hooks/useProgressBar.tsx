@@ -8,9 +8,14 @@ import {
   type View,
 } from 'react-native';
 
-import { videoPlayerStore$ } from '@/core/state';
+import { notesStore$, videoPlayerStore$ } from '@/core/state';
 
-export function useProgressBar() {
+import type {
+  RelativeNoteTime,
+  UseProgressBarProps,
+} from '../types/hooks-types';
+
+export function useProgressBar({ videoId }: UseProgressBarProps) {
   const currentTime = use$(videoPlayerStore$.progresInfo.currentTime);
   const seekableDuration = use$(videoPlayerStore$.progresInfo.seekableDuration);
   const playableDuration = use$(videoPlayerStore$.progresInfo.playableDuration);
@@ -24,6 +29,12 @@ export function useProgressBar() {
     ? temporaryProgress
     : currentTime / seekableDuration;
   const playableProgress = currentTime / playableDuration;
+
+  const noteTimes = use$(
+    notesStore$.videoNotes
+      .find((video) => video.videoId.get() === videoId)
+      ?.notes?.map((note) => note.time.get()) || [],
+  );
 
   const progressPercentage: DimensionValue = `${progress * 100}%`;
   const playableProgressPercentage: DimensionValue = `${playableProgress * 100}%`;
@@ -73,6 +84,16 @@ export function useProgressBar() {
     });
   }, [seekableDuration, calculateProgress, seek]);
 
+  const relativeNoteTimes: RelativeNoteTime[] = useMemo(
+    () =>
+      noteTimes.map((note) => {
+        const noteTimeInSeconds = note;
+        const position = `${(noteTimeInSeconds / seekableDuration) * 100}%`;
+        return { position, id: note.toString() + position };
+      }) as RelativeNoteTime[],
+    [seekableDuration, noteTimes],
+  );
+
   return {
     progressPercentage,
     playableProgressPercentage,
@@ -80,5 +101,6 @@ export function useProgressBar() {
     progressBarRef,
     panResponder,
     handleOnLayout,
+    relativeNoteTimes,
   };
 }
