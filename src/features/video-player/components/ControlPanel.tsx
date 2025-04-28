@@ -2,11 +2,10 @@ import { TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 import { useControllPanel } from '../hooks/useControllPanel';
+import { FADE_DURATION } from '../utils/setup';
 import { BottomControlls } from './BottomControlls';
 import { ControllVideoPlayBack } from './ControllVideoPlayBack';
 import { TopControlls } from './TopControlls';
-
-const FADE_DURATION = 600;
 
 export function ControlPanel() {
   const { isControlPanelAwaked, handlePressAwake, isPlaying } =
