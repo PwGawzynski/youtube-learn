@@ -3,8 +3,8 @@ import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { SafeAreaView, View } from 'react-native';
 
-import { ChanelProfile } from '@/components/shared/chanelProfile/ChanelProfile';
-import { Header } from '@/components/shared/Header';
+import { Header } from '@/components/shared/header';
+import { ProfileSticker } from '@/components/shared/profileSticker/ProfileSticker';
 import { SegmentedControl } from '@/components/shared/segmentedControl';
 import { getVideos } from '@/core/api/services/videos/videos';
 import type { VideoScreenLocalParams } from '@/core/types';
@@ -34,7 +34,7 @@ export default function Video() {
         <Header className="text-2xl font-bold">{title}</Header>
       </View>
       <View className="h-2/3 w-full px-4">
-        <ChanelProfile chanelName={chanelName} />
+        <ProfileSticker chanelName={chanelName} />
         <SegmentedControl
           segments={['Details', 'Notes']}
           defaultActiveIndex={0}
