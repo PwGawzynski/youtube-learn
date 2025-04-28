@@ -45,7 +45,12 @@ export default function Layout() {
       <QueryClientProvider client={QUERY_DEFAULTS.queryClient}>
         <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
           <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-          <Stack screenOptions={{ headerShown: false }} />
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen
+              name="index"
+              options={{ animation: 'fade', gestureEnabled: false }}
+            />
+          </Stack>
         </ThemeProvider>
       </QueryClientProvider>
     </GestureHandlerRootView>
