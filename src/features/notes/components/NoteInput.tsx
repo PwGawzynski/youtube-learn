@@ -1,4 +1,6 @@
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
+
+import { Button } from '@/components/ui/button';
 
 import { useNoteInput } from '../hooks/useNoteInput';
 import type { NoteInputProps } from '../types/components-types';
@@ -17,12 +19,9 @@ export function NoteInput({ notes$ }: NoteInputProps) {
         blurOnSubmit
         returnKeyType="done"
       />
-      <TouchableOpacity
-        onPress={handleAdd}
-        className="mx-8 items-center rounded-lg bg-button py-3"
-      >
+      <Button onPress={handleAdd} className="mx-8 py-3">
         <Text className="text-base font-bold text-white">Add note</Text>
-      </TouchableOpacity>
+      </Button>
     </View>
   );
 }

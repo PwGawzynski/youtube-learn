@@ -17,7 +17,8 @@
         {
           "enableAndroidPictureInPicture": true
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "name": "youtube-learn",
     "slug": "youtube-learn",
