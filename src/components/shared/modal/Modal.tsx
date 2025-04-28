@@ -1,5 +1,6 @@
 import { Modal, Pressable, View } from 'react-native';
 
+import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 
 import { OptionComponent } from './OptionComponent';
@@ -47,12 +48,12 @@ export function AppModal<T>({
             ))}
           </View>
 
-          <Pressable
+          <Button
             className="mt-8 rounded-lg bg-gray-800 py-3"
             onPress={handleConfirm}
           >
             <Text className="text-center text-lg text-white">Confirm</Text>
-          </Pressable>
+          </Button>
         </Pressable>
       </Pressable>
     </Modal>
