@@ -11,6 +11,7 @@ export function VideoList({
   data,
   renderItem,
   isLoading,
+  extraData,
 }: VideoListProps) {
   const { ItemSeparatorComponent } = useVideoList({ vertical });
 
@@ -24,6 +25,7 @@ export function VideoList({
       ItemSeparatorComponent={ItemSeparatorComponent}
       data={data}
       renderItem={renderItem}
+      extraData={extraData}
       keyExtractor={(item) =>
         item.id?.videoId || item.id?.channelId || item?.etag
       }
