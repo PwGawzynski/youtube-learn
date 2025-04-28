@@ -4,12 +4,13 @@ import Video from 'react-native-video';
 import { AppModal } from '@/components/shared/modal';
 
 import { useVideoPlayer } from '../hooks/useVideoPlayer';
+import type { VideoPlayerProps } from '../types/component-types';
 import { source, subtitleStyle, videoStyle } from '../utils/setup';
 import { ControlPanel } from './ControlPanel';
 import { PlaybackTimeInfo } from './PlaybackTimeInfo';
 import { ProgressBar } from './ProgressBar';
 
-export function VideoPlayer() {
+export function VideoPlayer({ videoId }: VideoPlayerProps) {
   const {
     videoRef,
     isPlaying,
@@ -48,7 +49,7 @@ export function VideoPlayer() {
         <ControlPanel />
       </View>
       <PlaybackTimeInfo />
-      <ProgressBar />
+      <ProgressBar videoId={videoId} />
       <AppModal
         visible={isSubtitleModalVisible}
         onClose={handleOnSubtitleClose}
