@@ -8,6 +8,4 @@ export type ControllButtonProps = {
 
 export type ControlPanelProps = {};
 
-export type ProgressBarProps = {
-  handleSeek: (seconds: number) => void;
-};
+export type ProgressBarProps = {};
