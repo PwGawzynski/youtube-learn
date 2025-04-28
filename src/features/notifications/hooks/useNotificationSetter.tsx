@@ -1,6 +1,7 @@
 import { currentTime } from '@legendapp/state/helpers/time';
 import { use$ } from '@legendapp/state/react';
 import { useEffect } from 'react';
+import Toast from 'react-native-toast-message';
 
 import { notificationStore$ } from '../store/store';
 import {
@@ -20,6 +21,11 @@ export default function useNotificationSetter() {
       notificationStore$.notificationTime.set(null);
       cancelPushNotification(notificationStore$.notificationId.get());
       notificationStore$.notificationId.set(null);
+      Toast.show({
+        type: 'success',
+        text1: 'Notification disabled',
+        text2: 'You will no longer receive notifications',
+      });
       return;
     }
 
@@ -41,6 +47,11 @@ export default function useNotificationSetter() {
         },
       }),
     );
+    Toast.show({
+      type: 'success',
+      text1: 'Notification enabled',
+      text2: 'You will receive a notification every day at the time you set',
+    });
   };
 
   useEffect(() => {

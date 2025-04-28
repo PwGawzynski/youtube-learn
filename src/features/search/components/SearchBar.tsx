@@ -7,7 +7,9 @@ import { useSearchBar } from '../hooks/useSearchBar';
 import type { SearchBarProps } from '../types/components-types';
 
 export function SearchBar({ placeholder, onChangeText }: SearchBarProps) {
-  const { isDark, debouncedOnChangeText } = useSearchBar({ onChangeText });
+  const { isDark, debouncedOnChangeText, query } = useSearchBar({
+    onChangeText,
+  });
 
   return (
     <View className="h-12 flex-row items-center rounded-xl border-2 border-gray-300 bg-transparent px-3 dark:border-gray-300">
@@ -16,9 +18,9 @@ export function SearchBar({ placeholder, onChangeText }: SearchBarProps) {
       </View>
       <View className="w-full">
         <Input
-          autoFocus
+          autoFocus={!query}
           className="border-0 bg-transparent"
-          placeholder={placeholder}
+          placeholder={query || placeholder}
           onChangeText={debouncedOnChangeText}
         />
       </View>

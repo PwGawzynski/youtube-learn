@@ -1,16 +1,16 @@
 import type { StyleProp, ViewStyle } from 'react-native';
 
-import type { Item } from '@/core/api/services/search';
+import type { VideoInfoItem } from '@/core/api/services/search';
 
 export type VideoCardProps = {
-  item: Item;
+  item: VideoInfoItem;
   style: StyleProp<ViewStyle>;
   showChannelTitle?: boolean;
-  onPress?: (item: Item) => void;
+  onPress?: (item: VideoInfoItem) => void;
 };
 
 export type ThumbnailProps = {
-  item: Item;
+  item: VideoInfoItem;
 };
 
 export type ContentProps = {

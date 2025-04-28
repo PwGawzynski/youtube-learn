@@ -1,11 +1,4 @@
-import type { SearchParams } from '@/core/api/services/search';
-
 import type { SearchBarProps, SortOptions } from './components-types';
-
-export type UseSearchResultsProps = {
-  query: string;
-  sort: SearchParams['order'];
-};
 
 export type UseSearchBarProps = Pick<SearchBarProps, 'onChangeText'>;
 

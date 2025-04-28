@@ -1,4 +1,4 @@
-import type { Item } from '@/core/api/services/search';
+import type { VideoInfoItem } from '@/core/api/services/search';
 
 export type SearchBarProps = {
   placeholder: string;
@@ -7,8 +7,9 @@ export type SearchBarProps = {
 };
 
 export type SearchResultsProps = {
-  data: Item[];
+  data: VideoInfoItem[];
   isLoading: boolean;
+  sort: SortOptions;
 };
 
 export type ResultsCountInfoProps = {

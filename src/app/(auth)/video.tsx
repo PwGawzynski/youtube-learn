@@ -7,6 +7,7 @@ import { Header } from '@/components/shared/header';
 import { ProfileSticker } from '@/components/shared/profileSticker/ProfileSticker';
 import { SegmentedControl } from '@/components/shared/segmentedControl';
 import { getVideos } from '@/core/api/services/videos/videos';
+import { QUERY_DEFAULTS } from '@/core/settings/query';
 import type { VideoScreenLocalParams } from '@/core/types';
 import { Notes } from '@/features/notes';
 import { VideoDetails } from '@/features/video-details';
@@ -20,7 +21,7 @@ export default function Video() {
     queryKey: ['video', 'statistics, snippet', videoId],
     queryFn: () => getVideos({ id: videoId, part: 'statistics, snippet' }),
     enabled: !!videoId,
-    staleTime: Infinity,
+    staleTime: QUERY_DEFAULTS.staleTime,
   });
 
   const title = data?.items[0].snippet.title;

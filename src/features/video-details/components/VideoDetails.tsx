@@ -12,7 +12,7 @@ export function VideoDetails({ video }: VideoDetailsProps) {
 
   return (
     <ScrollView className="mt-4 flex-1">
-      <View className="pb-4">
+      <View className="pb-8">
         <VideoDescription description={video.snippet.description} />
         {video.statistics && (
           <VideoStatistics

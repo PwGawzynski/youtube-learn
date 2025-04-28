@@ -16,21 +16,17 @@ export function CategorizedList({
   maxResults = 5,
   showSeparator,
 }: CategorizedListProps) {
-  const { data, isLoading, handleVideoPress } = useCategorizedList({
-    categoryName,
-    maxResults,
-  });
+  const { data, isLoading, handleVideoPress, handleMorePress } =
+    useCategorizedList({
+      categoryName,
+      maxResults,
+    });
 
   return (
     <View
       className={`mt-4 h-[28%] justify-center ${showSeparator ? 'border-b border-black dark:border-white' : ''}`}
     >
-      <TopBar
-        headerText={categoryName}
-        onShowMorePress={() => {
-          console.log('show more');
-        }}
-      />
+      <TopBar headerText={categoryName} onShowMorePress={handleMorePress} />
       <VideoList
         isLoading={isLoading}
         horizontal={{

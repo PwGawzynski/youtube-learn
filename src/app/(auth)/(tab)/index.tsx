@@ -5,11 +5,12 @@ import { CategorizedList } from '@/features/categorized-list';
 import { SearchAndSettingsHeader } from '@/features/search-and-settings-header';
 
 const categories = ['React Native', 'React', 'TypeScript', 'JavaScript'];
-const MAX_RESULTS = 1;
+const MAX_RESULTS = 5;
 
 export default function Index() {
   const bottomTabHeight = useBottomTabBarHeight();
-  const paddingBottom = bottomTabHeight * 3;
+  const paddingBottom = bottomTabHeight * 4;
+
   return (
     <View className="flex-1">
       <SafeAreaView className="mt-12 flex-1">

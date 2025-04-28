@@ -27,13 +27,13 @@ export function Search() {
     sort: SortOptions.VIEW_COUNT_DESC,
   });
   return (
-    <View className="m-4 flex-1">
+    <View className="mx-4 mt-4  flex-1">
       <SearchBar placeholder="Search videos" onChangeText={handleTextChange} />
       {totalResults && (
         <ResultsCountInfo totalResults={totalResults} query={query} />
       )}
       <SortOptionButton sort={sort} handleOpenModal={handleOpenModal} />
-      <SearchResults data={data?.items} isLoading={isLoading} />
+      <SearchResults data={data?.items} isLoading={isLoading} sort={sort} />
       <AppModal
         visible={modalVisible}
         onClose={handleCloseModal}
