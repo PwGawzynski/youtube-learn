@@ -2,7 +2,7 @@ import '../core/settings/global.css';
 
 import { ThemeProvider } from '@react-navigation/native';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { Slot } from 'expo-router';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
@@ -43,7 +43,7 @@ export default function Layout() {
     <QueryClientProvider client={QUERY_DEFAULTS.queryClient}>
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
         <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-        <Slot />
+        <Stack screenOptions={{ headerShown: false }} />
       </ThemeProvider>
     </QueryClientProvider>
   );
