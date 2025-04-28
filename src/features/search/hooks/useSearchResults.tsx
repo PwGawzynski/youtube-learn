@@ -1,13 +1,16 @@
-import { useYtSearchQuery } from '@/core/hooks/useYtSearchQuery';
+import { useRouter } from 'expo-router';
 
-import type { UseSearchResultsProps } from '../types/hooks-types';
+import type { VideoInfoItem } from '@/core/api/services/search';
 
-export function useSearchResults({
-  query: queryString,
-  sort: sortOption,
-}: UseSearchResultsProps) {
-  const query = useYtSearchQuery({ queryString, order: sortOption });
-  return {
-    ...query,
+export function useSearchResults() {
+  const router = useRouter();
+
+  const onPress = (item: VideoInfoItem) => {
+    router.push({
+      pathname: '/(auth)/video',
+      params: { videoId: item.id.videoId },
+    });
   };
+
+  return { onPress };
 }
