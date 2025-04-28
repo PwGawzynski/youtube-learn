@@ -85,10 +85,10 @@ yarn install
 yarn start
 
 # Run on iOS
-yarn ios
+npx expo run:android --device
 
 # Run on Android
-yarn android
+npx expo run:ios --device
 ```
 
 ## 📝 License
