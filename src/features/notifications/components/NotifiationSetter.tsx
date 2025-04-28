@@ -11,7 +11,7 @@ const ClockIcon = require('@/assets/icons/clock-icon.svg');
 
 const ICON_SIZE = 24;
 
-export default function NotifiationSetter() {
+export function NotifiationSetter() {
   const { isNotificationEnabled, handleNotificationChange } =
     useNotificationSetter();
   return (

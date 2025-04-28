@@ -3,7 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 
 import { ProfileSticker } from '@/components/shared/profileSticker/ProfileSticker';
 import { Text } from '@/components/ui/text';
-import NotifiationSetter from '@/features/notifications/components/NotifiationSetter';
+import { NotifiationSetter } from '@/features/notifications';
 
 const BELL_ICON = require('@/assets/icons/notification-icon.svg');
 
