@@ -4,6 +4,8 @@ import { videoPlayerStore$ } from '@/core/state';
 
 import { BACKWARD_TIME, FORWARD_TIME } from '../utils/setup';
 
+const TOLERANCE = 10;
+
 export function useControllVideoPlayBack() {
   const isPlaying = use$(videoPlayerStore$.isPlaying);
   const setIsPlaying = use$(videoPlayerStore$.setIsPlaying);
@@ -21,12 +23,12 @@ export function useControllVideoPlayBack() {
   };
 
   const handlePressForward = () => {
-    seek?.current?.(currentTime + FORWARD_TIME, 10);
+    seek?.current?.(currentTime + FORWARD_TIME, TOLERANCE);
     videoPlayerStore$.controlPanelAwaked.set(false);
   };
 
   const handlePressBackward = () => {
-    seek?.current?.(currentTime - BACKWARD_TIME, 10);
+    seek?.current?.(currentTime - BACKWARD_TIME, TOLERANCE);
     videoPlayerStore$.controlPanelAwaked.set(false);
   };
 
