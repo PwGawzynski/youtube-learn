@@ -1,6 +1,6 @@
 import type { ListRenderItem } from 'react-native';
 
-import type { Item } from '@/core/api/services/search';
+import type { VideoInfoItem } from '@/core/api/services/search';
 
 export type VideoListProps = {
   horizontal?: {
@@ -11,9 +11,10 @@ export type VideoListProps = {
     estimatedItemSize?: number;
     contentContainerStyle?: object;
   };
-  data: Item[];
-  renderItem: ListRenderItem<Item>;
+  data: VideoInfoItem[];
+  renderItem: ListRenderItem<VideoInfoItem>;
   isLoading?: boolean;
+  extraData?: any;
 };
 
 export type ListSeparatorProps = {
