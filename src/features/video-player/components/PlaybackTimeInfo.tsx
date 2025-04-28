@@ -2,8 +2,8 @@ import { View } from 'react-native';
 
 import { Text } from '@/components/ui/text';
 
+import { formatTime } from '../../../core/utils/format-time';
 import { usePlaybackTimeInfo } from '../hooks/usePlaybackTimeInfo';
-import { formatTime } from '../utils/format-time';
 
 export function PlaybackTimeInfo() {
   const { currentTime, duration } = usePlaybackTimeInfo();
