@@ -6,6 +6,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { useIsomorphicLayoutEffect } from '@/core/hooks/useIsomorphicLayoutEffect';
 import { QUERY_DEFAULTS } from '@/core/settings/query';
@@ -40,11 +41,13 @@ export default function Layout() {
     return null;
   }
   return (
-    <QueryClientProvider client={QUERY_DEFAULTS.queryClient}>
-      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-        <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-        <Stack screenOptions={{ headerShown: false }} />
-      </ThemeProvider>
-    </QueryClientProvider>
+    <GestureHandlerRootView>
+      <QueryClientProvider client={QUERY_DEFAULTS.queryClient}>
+        <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+          <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+          <Stack screenOptions={{ headerShown: false }} />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </GestureHandlerRootView>
   );
 }

@@ -1,11 +1,12 @@
 import { View } from 'react-native';
 
+import { AppModal } from '@/components/shared/modal';
+
 import { useSearch } from '../hooks/useSearch';
 import { SortOptions } from '../types/components-types';
 import { ResultsCountInfo } from './ResultsCountInfo';
 import { SearchBar } from './SearchBar';
 import { SearchResults } from './SearchResults';
-import { SortModal } from './SortModal';
 import { SortOptionButton } from './SortOptionButton';
 
 export function Search() {
@@ -20,6 +21,7 @@ export function Search() {
     handleSortSelect,
     handleOpenModal,
     handleTextChange,
+    sortOptions,
   } = useSearch({
     query: '',
     sort: SortOptions.VIEW_COUNT_DESC,
@@ -32,11 +34,11 @@ export function Search() {
       )}
       <SortOptionButton sort={sort} handleOpenModal={handleOpenModal} />
       <SearchResults data={data?.items} isLoading={isLoading} />
-      <SortModal
+      <AppModal
         visible={modalVisible}
         onClose={handleCloseModal}
-        selectedSort={sort}
-        onSortSelect={handleSortSelect}
+        options={sortOptions}
+        onOptionSelect={handleSortSelect}
       />
     </View>
   );
