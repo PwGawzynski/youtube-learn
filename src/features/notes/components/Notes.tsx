@@ -10,7 +10,7 @@ export function Notes({ videoId }: NotesProps) {
 
   return (
     <KeyboardAvoidingView
-      className="flex-1"
+      className="flex-1 pb-2"
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <NotesList notes$={notes$} />
