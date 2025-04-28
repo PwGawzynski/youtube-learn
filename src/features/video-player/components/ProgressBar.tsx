@@ -3,7 +3,7 @@ import { Pressable, View } from 'react-native';
 import { useProgressBar } from '../hooks/useProgressBar';
 import type { ProgressBarProps } from '../types/component-types';
 
-export function ProgressBar(_: ProgressBarProps) {
+export function ProgressBar({ videoId }: ProgressBarProps) {
   const {
     progressPercentage,
     playableProgressPercentage,
@@ -11,7 +11,9 @@ export function ProgressBar(_: ProgressBarProps) {
     progressBarRef,
     panResponder,
     handleOnLayout,
-  } = useProgressBar();
+    relativeNoteTimes,
+  } = useProgressBar({ videoId });
+
   return (
     <View
       className="h-2 w-full items-start justify-center bg-black"
@@ -38,9 +40,21 @@ export function ProgressBar(_: ProgressBarProps) {
         style={{
           left: dotPosition,
           transform: [{ translateX: -5 }, { translateY: -2.5 }],
-          zIndex: 3,
+          zIndex: 4,
         }}
       />
+      {relativeNoteTimes.map(({ position, id }) => {
+        return (
+          <View
+            key={id}
+            className="absolute left-0 top-0 h-2 w-1  bg-blue-500"
+            style={{
+              left: position,
+              zIndex: 3,
+            }}
+          />
+        );
+      })}
     </View>
   );
 }
