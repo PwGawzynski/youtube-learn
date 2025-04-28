@@ -10,9 +10,7 @@ import {
 
 import { videoPlayerStore$ } from '@/core/state';
 
-import type { UseProgressBarProps } from '../types/hooks-types';
-
-export function useProgressBar({ handleSeek }: UseProgressBarProps) {
+export function useProgressBar() {
   const currentTime = use$(videoPlayerStore$.progresInfo.currentTime);
   const seekableDuration = use$(videoPlayerStore$.progresInfo.seekableDuration);
   const playableDuration = use$(videoPlayerStore$.progresInfo.playableDuration);
@@ -21,7 +19,7 @@ export function useProgressBar({ handleSeek }: UseProgressBarProps) {
   const progressBarRef = useRef<View>(null);
   const progressBarWidth = useRef(0);
   const progressBarX = useRef(0);
-
+  const seek = use$(videoPlayerStore$.seek);
   const progress = isDragging
     ? temporaryProgress
     : currentTime / seekableDuration;
@@ -65,7 +63,7 @@ export function useProgressBar({ handleSeek }: UseProgressBarProps) {
         // Update the actual video time
         const newTime = newProgress * seekableDuration;
 
-        handleSeek(newTime);
+        seek?.current?.(newTime);
 
         setIsDragging(false);
       },
@@ -73,7 +71,7 @@ export function useProgressBar({ handleSeek }: UseProgressBarProps) {
         setIsDragging(false);
       },
     });
-  }, [handleSeek, seekableDuration, calculateProgress]);
+  }, [seekableDuration, calculateProgress, seek]);
 
   return {
     progressPercentage,
