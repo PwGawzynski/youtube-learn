@@ -29,7 +29,7 @@ type Id = {
   playlistId?: string;
 };
 
-type Item = {
+type VideoInfoItem = {
   kind: 'youtube#searchResult';
   etag: string;
   id: Id;
@@ -48,15 +48,15 @@ type SearchListResponse = {
   prevPageToken?: string;
   regionCode: string;
   pageInfo: PageInfo;
-  items: Item[];
+  items: VideoInfoItem[];
 };
 
 export type {
   Id,
-  Item,
   PageInfo,
   SearchListResponse,
   Snippet,
   Thumbnail,
   Thumbnails,
+  VideoInfoItem,
 };
