@@ -7,6 +7,9 @@ export const NAV_THEME = {
     primary: 'hsl(240 5.9% 10%)', // primary
     text: 'hsl(240 10% 3.9%)', // foreground
     button: 'hsl(235, 21%, 21%)', // button
+    tabBar: 'hsl(218, 17%, 62%)', // tabBar
+    tabBarActive: 'hsl(218, 17%, 62%)', // tabBarActive
+    tabBarInactive: 'hsl(0, 0%, 100%)', // tabBarInactive
   },
   dark: {
     background: 'hsl(213, 46%, 25%)', // background
@@ -16,5 +19,8 @@ export const NAV_THEME = {
     primary: 'hsl(0 0% 98%)', // primary
     text: 'hsl(0 0% 98%)', // foreground
     button: 'hsl(235, 43.90%, 88.80%)', // button
+    tabBar: 'hsl(213, 46%, 25%)', // tabBar
+    tabBarActive: 'hsl(235, 21%, 21%)', // tabBarActive
+    tabBarInactive: 'hsl(0, 0%, 100%)', // tabBarInactive
   },
 };
