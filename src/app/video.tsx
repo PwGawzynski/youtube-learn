@@ -8,6 +8,7 @@ import { Header } from '@/components/shared/Header';
 import { SegmentedControl } from '@/components/shared/segmentedControl';
 import { getVideos } from '@/core/api/services/videos/videos';
 import type { VideoScreenLocalParams } from '@/core/types';
+import { Notes } from '@/features/notes';
 import { VideoDetails } from '@/features/video-details';
 import { VideoPlayer } from '@/features/video-player';
 
@@ -25,9 +26,9 @@ export default function Video() {
   const title = data?.items[0].snippet.title;
   const chanelName = data?.items[0].snippet.channelTitle;
   return (
-    <SafeAreaView className="mt-12 flex-1">
+    <SafeAreaView className="my-12 flex-1">
       <View className="h-1/3 w-full">
-        <VideoPlayer />
+        <VideoPlayer videoId={videoId} />
       </View>
       <View className="w-full px-4 py-2">
         <Header className="text-2xl font-bold">{title}</Header>
@@ -40,7 +41,7 @@ export default function Video() {
           onChange={setActiveIndex}
         />
         {activeIndex === 0 && <VideoDetails video={data?.items[0]} />}
-        {activeIndex === 1 && <View />}
+        {activeIndex === 1 && <Notes videoId={videoId} />}
       </View>
     </SafeAreaView>
   );
