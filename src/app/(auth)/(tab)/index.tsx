@@ -9,7 +9,7 @@ const MAX_RESULTS = 5;
 
 export default function Index() {
   const bottomTabHeight = useBottomTabBarHeight();
-  const paddingBottom = bottomTabHeight * 3;
+  const paddingBottom = bottomTabHeight * 4;
 
   return (
     <View className="flex-1">
