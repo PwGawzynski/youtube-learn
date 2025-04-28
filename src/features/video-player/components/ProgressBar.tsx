@@ -3,7 +3,7 @@ import { Pressable, View } from 'react-native';
 import { useProgressBar } from '../hooks/useProgressBar';
 import type { ProgressBarProps } from '../types/component-types';
 
-export function ProgressBar({ handleSeek }: ProgressBarProps) {
+export function ProgressBar(_: ProgressBarProps) {
   const {
     progressPercentage,
     playableProgressPercentage,
@@ -11,7 +11,7 @@ export function ProgressBar({ handleSeek }: ProgressBarProps) {
     progressBarRef,
     panResponder,
     handleOnLayout,
-  } = useProgressBar({ handleSeek });
+  } = useProgressBar();
   return (
     <View
       className="h-2 w-full items-start justify-center bg-black"
