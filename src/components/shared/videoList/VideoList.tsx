@@ -1,5 +1,6 @@
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 
+import { EmptyListComponent } from './EmptyListComponent';
 import { ListLoading } from './ListLoading';
 import type { VideoListProps } from './types';
 import { useVideoList } from './useVideoList';
@@ -17,9 +18,7 @@ export function VideoList({
 
   return (
     <FlatList
-      ListEmptyComponent={
-        <View className="flex-1 items-center justify-center" />
-      }
+      ListEmptyComponent={<EmptyListComponent />}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
       ItemSeparatorComponent={ItemSeparatorComponent}

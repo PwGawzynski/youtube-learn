@@ -17,11 +17,12 @@ export function Feed() {
         paddingBottom,
       }}
     >
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <CategorizedList
           key={category}
           categoryName={category}
           maxResults={MAX_RESULTS}
+          showSeparator={index !== categories.length - 1}
         />
       ))}
     </ScrollView>
