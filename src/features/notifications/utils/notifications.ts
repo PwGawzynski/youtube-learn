@@ -21,7 +21,6 @@ export async function scheduleDailyPushNotification({
   body: string;
   time: { hour: number; minute: number };
 }): Promise<string> {
-  console.log('Scheduling daily push notification', title, body, time);
   return Notifications.scheduleNotificationAsync({
     content: {
       title,
@@ -35,12 +34,10 @@ export async function scheduleDailyPushNotification({
 }
 
 export async function cancelAllPushNotifications() {
-  console.log('Cancelling all push notifications');
   await Notifications.cancelAllScheduledNotificationsAsync();
 }
 
 export async function cancelPushNotification(id: string) {
-  console.log('Cancelling push notification', id);
   await Notifications.cancelScheduledNotificationAsync(id);
 }
 
