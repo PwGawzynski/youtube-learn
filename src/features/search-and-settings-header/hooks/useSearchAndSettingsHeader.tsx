@@ -4,11 +4,11 @@ export function useSearchAndSettingsHeader() {
   const router = useRouter();
 
   const handleSearchPress = () => {
-    router.push('/(tab)/search');
+    router.push('/(auth)/(tab)/search');
   };
 
   const handleSettingsPress = () => {
-    router.push('/settings');
+    router.push('/(auth)/settings');
   };
 
   return { handleSearchPress, handleSettingsPress };
