@@ -3,21 +3,20 @@ import { useEffect, useRef } from 'react';
 
 import { videoPlayerStore$ } from '@/core/state';
 
-const SLEEP_TIME = 3000;
+import { SLEEP_TIME } from '../utils/setup';
 
 export function useControllPanel() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isPlaying = use$(videoPlayerStore$.isPlaying);
   const isControlPanelAwaked = use$(videoPlayerStore$.controlPanelAwaked);
-  const setIsControlPanelAwaked = use$(videoPlayerStore$.setControlPanelAwaked);
 
   const handlePressAwake = () => {
-    setIsControlPanelAwaked(true);
+    videoPlayerStore$.controlPanelAwaked.set(true);
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
     timeoutRef.current = setTimeout(() => {
-      setIsControlPanelAwaked(false);
+      videoPlayerStore$.controlPanelAwaked.set(false);
     }, SLEEP_TIME);
   };
 
@@ -26,9 +25,9 @@ export function useControllPanel() {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
-      setIsControlPanelAwaked(false);
+      videoPlayerStore$.controlPanelAwaked.set(false);
     };
-  }, [setIsControlPanelAwaked]);
+  }, []);
 
   return {
     isControlPanelAwaked,
