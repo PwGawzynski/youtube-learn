@@ -2,6 +2,11 @@ import type { StyleProp, ViewStyle } from 'react-native';
 import type { TextTracks } from 'react-native-video';
 import { SelectedTrackType, TextTrackType } from 'react-native-video';
 
+export const FORWARD_TIME = 10;
+export const BACKWARD_TIME = 10;
+export const FADE_DURATION = 600;
+export const SLEEP_TIME = 3000;
+
 export const textTracks: TextTracks = [
   {
     title: 'English CC',
